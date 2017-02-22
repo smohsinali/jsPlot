@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="index.css"/>
+    <title>Plot</title>
+</head>
+<body>
+<p>Select local CSV File:</p>
+<input id="csv" type="file" multiple="multiple"/>
+<button onclick="plot()">GO</button>
+
+
+<output id="out">
+    file contents will appear here
+</output>
+
+<div id="tester" style="width:1900px;height:1200px;"></div>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/plotly-latest.min.js"></script>
+<script src="js/jquery.csv.min.js"></script>
+<script src="js/main.js"></script>
+
+
+</body>
+</html>

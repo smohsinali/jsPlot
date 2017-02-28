@@ -9,7 +9,9 @@ var features = [];
 var size = [];
 var runtimes = [];
 var readFile = function () {
-
+    features = [];
+    size = [];
+    runtimes = [];
     for (var i = 0; i < fileInput.files.length; i++) { // for multiple files
         features.push([]);
         size.push([]);
@@ -20,7 +22,7 @@ var readFile = function () {
             reader.onload = function(e) {
                 // get file content
                 data = $.csv.toArrays(e.target.result);
-                for (var j = 0; j < data.length; j++) {
+                for (var j = 1; j < data.length; j++) {
                     features[index].push(parseInt(data[j][1]));
                     size[index].push(parseInt(data[j][0]));
                     runtimes[index].push(parseFloat(data[j][2]));
@@ -52,7 +54,22 @@ var plot = function () {
         // traces.push(trace);
     }
 
-    Plotly.newPlot('tester', traces);
+    var layout = {
+        autosize: false,
+        width: 700,
+        height: 700,
+        margin: {
+            l: 50,
+            r: 50,
+            b: 0,
+            t: 0,
+            pad: 4
+        }
+        // paper_bgcolor: '#7f7f7f',
+        // plot_bgcolor: '#c7c7c7'
+    };
+
+    Plotly.newPlot('tester', traces, layout);
 };
 // Plotly.plot( TESTER, [{
 //     x: [1, 2, 3, 4, 5],
